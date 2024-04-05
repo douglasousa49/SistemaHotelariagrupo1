@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class lerDados {    
+
+    public static int lerInt() {        
+
+        Scanner ler = new Scanner(System.in);        
+
+        while(true){
+
+            var linha = ler.nextLine();            
+
+            try {
+
+                return Integer.parseInt(linha);
+
+            }
+
+            catch (NumberFormatException erro) {
+
+                System.out.println("Tente novamente.");
+
+            }
+
+        }
+
+    }
+
+    
+
+    public static double lerDouble() {        
+
+        Scanner ler = new Scanner(System.in);        
+
+        while(true) {            
+
+            var linha = ler.nextLine();            
+
+            try {
+
+                return Double.parseDouble(linha);
+
+            }
+
+            catch (NumberFormatException erro) {
+
+                System.out.println("Tente novamente.");
+
+            }
+
+        }
+
+    }
+
+    
+
+    public static String lerTexto() {        
+
+        Scanner ler = new Scanner(System.in);        
+
+        return ler.nextLine();
+
+    }    
+
+}
