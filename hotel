@@ -14,11 +14,7 @@ public class SistemaHotel {
 
         while (true) {
             
-            System.out.println("==== Menu Principal ====\n" +
-                               "1 - Cadastrar Hospede   \n" +
-                               "2 - Fazer Reserva       \n" + 
-                               "3 - Listar Hospede      \n" +
-                               "4 - Listar Reserva");
+            System.out.println("==== Menu Principal ====");
             System.out.println();
             System.out.println("1 - Cadastrar hospede");
             System.out.println("2 - Fazer Reserva");
