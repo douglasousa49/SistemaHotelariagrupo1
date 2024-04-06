@@ -1,6 +1,10 @@
-package com.mycompany.hotel;
+package com.mycompany.sistemahotel;
 
-public class hotel {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class SistemaHotel {
 
     public static void main(String[] args) {
         menuPrincipal();
@@ -9,20 +13,27 @@ public class hotel {
     private static void menuPrincipal() {
 
         while (true) {
+            
+            System.out.println("==== Menu Principal ====\n" +
+                               "1 - Cadastrar Hospede   \n" +
+                               "2 - Fazer Reserva       \n" + 
+                               "3 - Listar Hospede      \n" +
+                               "4 - Listar Reserva");
             System.out.println();
-            System.out.println("1 - Cadastrar hospede.");
-            System.out.println("2 - Fazer reserva.");
-            System.out.println("3 - Serviços.");
-            System.out.println("4 - Buscar cadastro.");
+            System.out.println("1 - Cadastrar hospede");
+            System.out.println("2 - Fazer Reserva");
+            System.out.println("3 - Listar Hospedes");
+            System.out.println("4 - Listar Reservas");
+            System.out.println("4 - Sair");
             System.out.println();
             System.out.println("Escolha uma das opções:");
-            var escolha = lerDados.lerInt();A
+            var escolha = lerDados.lerInt();
 
             switch (escolha) {
                 case 1:
                     cadastrarHospede();
+                    
                     break;
-
                 //case 2:
                 //fazerReserva();
                 //break;
@@ -40,29 +51,52 @@ public class hotel {
     }
 
     private static void cadastrarHospede() {
-        System.out.println("Digite seu nome: ");
+        
+        String dataFormatada="";
+        
+        System.out.println("Nome: ");
         var nome = lerDados.lerTexto();
+   
+        while (true) {
+            System.out.println("Data de nascimento: ");
+            var idade = lerDados.lerTexto();
+            
+        try {            
+            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
+            Date data = formatoEntrada.parse(idade);
+            dataFormatada = formatoEntrada.format(data);
+            break;
+            
+        } catch (ParseException e) {
+            System.out.println("Formato de data inválido. Certifique-se de que está no formato dd/MM/yyyy.");
+        }
+        }   
+        
+        System.out.println("CPF/Passaporte/RNE (Digite somente números): ");
+        var cpf = lerDados.lerTexto();
+        
+        System.out.println("Nacionalidade: ");
+        var nacionalidade = lerDados.lerTexto();
 
-        System.out.println("Digite sua data de nascimento: ");
-        var idade = lerDados.lerDouble();
+        System.out.println("Endereço: ");
+        var endereco = lerDados.lerTexto();
+        
+        System.out.println("Número: ");
+        var numeroEndereco = lerDados.lerInt();
+        
+        System.out.println("Complemento: ");
+        var complementoEndereco = lerDados.lerTexto();        
 
-        System.out.println("Digite seu cpf: ");
-        var cpf = lerDados.lerDouble();
-
-        System.out.println("Digite seu passaporte: ");
-        var passaporte = lerDados.lerDouble();
-
-        System.out.println("Digite seu cep: ");
-        var cep = lerDados.lerDouble();
+        System.out.println("CEP (Digite somente números): ");
+        var cep = lerDados.lerTexto();
         
         System.out.println("Nome: " + nome);
-        System.out.println("Idade: " + idade);
-        System.out.println("CPF: " + cpf);
-        System.out.println("Passaporte: " + passaporte);
+        System.out.println("Data de Nascimento: " + dataFormatada);
+        System.out.println("CPF/Passaporte/RNE: " + cpf);
+        System.out.println("Nacionalidade: " + nacionalidade);
+        System.out.println("Endereço: " + endereco);
+        System.out.println("Número: " + numeroEndereco);              
+        System.out.println("Complemento: " + complementoEndereco);
         System.out.println("CEP: " + cep);
-        
-        
-        
-        
     }
 }
