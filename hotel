@@ -1,11 +1,9 @@
-package com.mycompany.sistemahotel;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SistemaHotel {
-
+    
     public static void main(String[] args) {
         menuPrincipal();
     }
@@ -20,25 +18,33 @@ public class SistemaHotel {
             System.out.println("2 - Fazer Reserva");
             System.out.println("3 - Listar Hospedes");
             System.out.println("4 - Listar Reservas");
-            System.out.println("4 - Sair");
+            System.out.println("5 - Sair");
             System.out.println();
             System.out.println("Escolha uma das opções:");
             var escolha = lerDados.lerInt();
 
             switch (escolha) {
+                
                 case 1:
                     cadastrarHospede();
-                    
-                    break;
-                //case 2:
-                //fazerReserva();
-                //break;
-                //case 3:
-                // servicos();
-                //  break;
-                // case 4:
-                //buscarCadastro();
-                //     break;
+                break;
+                
+                /*case 2:
+                    fazerReserva();
+                break;
+
+                case 3:
+                    listarHospedes();
+                break;
+
+                case 3:
+                    listarReservas();
+                break;
+
+                case 5:
+                    sair();
+                break;*/
+
                 default:
                     System.out.println("tente novamente.");
                     break;
@@ -47,27 +53,13 @@ public class SistemaHotel {
     }
 
     private static void cadastrarHospede() {
-        
-        String dataFormatada="";
-        
+             
         System.out.println("Nome: ");
         var nome = lerDados.lerTexto();
-   
-        while (true) {
-            System.out.println("Data de nascimento: ");
-            var idade = lerDados.lerTexto();
-            
-        try {            
-            SimpleDateFormat formatoEntrada = new SimpleDateFormat("dd/MM/yyyy");
-            Date data = formatoEntrada.parse(idade);
-            dataFormatada = formatoEntrada.format(data);
-            break;
-            
-        } catch (ParseException e) {
-            System.out.println("Formato de data inválido. Certifique-se de que está no formato dd/MM/yyyy.");
-        }
-        }   
-        
+
+        System.out.println("Data de nascimento: ");
+        var idade = lerDados.lerData();
+                   
         System.out.println("CPF/Passaporte/RNE (Digite somente números): ");
         var cpf = lerDados.lerTexto();
         
@@ -87,7 +79,7 @@ public class SistemaHotel {
         var cep = lerDados.lerTexto();
         
         System.out.println("Nome: " + nome);
-        System.out.println("Data de Nascimento: " + dataFormatada);
+        System.out.println("Data de Nascimento: " + idade);
         System.out.println("CPF/Passaporte/RNE: " + cpf);
         System.out.println("Nacionalidade: " + nacionalidade);
         System.out.println("Endereço: " + endereco);
@@ -96,3 +88,12 @@ public class SistemaHotel {
         System.out.println("CEP: " + cep);
     }
 }
+
+
+//    private static void listarHospedes() {
+
+//}
+
+//    private static void listarReservas() {
+
+//}
