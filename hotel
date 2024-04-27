@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class SistemaHotel {
     
@@ -29,21 +31,21 @@ public class SistemaHotel {
                     cadastrarHospede();
                 break;
                 
-                /*case 2:
-                    fazerReserva();
-                break;
+                // case 2:
+                //     fazerReserva();
+                // break;
 
                 case 3:
                     listarHospedes();
                 break;
 
-                case 3:
-                    listarReservas();
-                break;
+                // case 3:
+                //     listarReservas();
+                // break;
 
-                case 5:
-                    sair();
-                break;*/
+                // case 5:
+                //     sair();
+                // break;
 
                 default:
                     System.out.println("tente novamente.");
@@ -51,6 +53,8 @@ public class SistemaHotel {
             }
         }
     }
+
+    static ArrayList<String> nomes = new ArrayList<>();
 
     private static void cadastrarHospede() {
              
@@ -86,13 +90,19 @@ public class SistemaHotel {
         System.out.println("Número: " + numeroEndereco);              
         System.out.println("Complemento: " + complementoEndereco);
         System.out.println("CEP: " + cep);
+
+        nomes.add(nome);
+
+    }
+
+
+
+    private static void listarHospedes() {
+        for (String nome : nomes) {
+            System.out.println(nome);
+        }
     }
 }
-
-
-//    private static void listarHospedes() {
-
-//}
 
 //    private static void listarReservas() {
 
